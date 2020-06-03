@@ -1,6 +1,6 @@
 Simple client to connect to consume Ruby Websocket
 
-## To start
+## To install
 
 ```
 npm i
