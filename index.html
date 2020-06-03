@@ -1,0 +1,43 @@
+<html>
+  <body>
+    <script>
+    var global = window;
+    var cable;
+      function connect() {
+        const cableUrl = document.getElementById('connection').value;
+        const token = document.getElementById('token').value;
+        const channel = document.getElementById('channel').value;
+
+        if (!cable) {
+          console.log('CONECTING...')
+          cable = ActionCable.createConsumer(cableUrl, token)
+        }
+
+        console.log('SUBSCRIPTION...')
+        cable.subscriptions.create({
+          channel: channel
+        }, {
+          disconnected: (data) => {
+            console.log(data)
+          },
+          rejected: (data) => {
+            console.log(data)
+          },
+          connected: (data) => {
+            console.log(data)
+          },
+          received: (data) => {
+            console.log(data)
+          }
+        })
+      }
+    </script>
+    <input id="connection" placeholder="Connection URL" />
+    <input id="token" placeholder="JWT" />
+    <input id="channel" placeholder="Channel" />
+    <!-- <textarea id="content" placeholder="Body"></textarea> -->
+    <button onclick="connect()">connect</button>
+    <!-- <button onclick="send()">send</button> -->
+    <script src="/action_cable_react_jwt.js"></script>
+  </body>
+</html>
