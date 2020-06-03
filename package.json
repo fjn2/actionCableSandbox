@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "action-cable-react-jwt": "0.0.5",
     "http-serve": "^1.0.1"
   }
 }
